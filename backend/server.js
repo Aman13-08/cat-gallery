@@ -6,7 +6,7 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 
-// Ensure environment variables are loaded
+// Check if API key is set
 if (!process.env.CAT_API_KEY) {
     console.error("Missing CAT_API_KEY in .env file");
     process.exit(1);
@@ -25,5 +25,5 @@ app.get("/api/cats", async (req, res) => {
     }
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
