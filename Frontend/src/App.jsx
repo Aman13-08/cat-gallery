@@ -8,16 +8,17 @@ function App() {
     const fetchCats = async () => {
         setLoading(true);
         try {
-            const response = await axios.get("http://localhost:5000/api/cats");
+            // ✅ Use Render backend API
+            const response = await axios.get("https://cat-gallery-2.onrender.com/api/cats");
             setCats(response.data);
         } catch (error) {
-            console.error("Error fetching data", error);
+            console.error("Error fetching data:", error);
         }
         setLoading(false);
     };
 
     useEffect(() => {
-        fetchCats();
+        fetchCats(); // Call API when component mounts
     }, []);
 
     return (
